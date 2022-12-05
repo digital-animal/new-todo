@@ -11,24 +11,23 @@
   </head>
 <body>
     <h1 class="display-6 text-primary p-2">Spring MVC Application</h1>
-    <p th:text="${todo}"></p>
     <div class="container">
   
         <form action="#" th:action="@{/todo/{id}(id=${todo.id})}" method="post" th:object="${todo}">
 
           <div class="form-group">
             <label for="description">Todo Item</label>
-            <input type="text" class="form-control" id="description" name="description" th:field="*{description} th:value="${todo.description}" placeholder="Add a description">
+            <input type="text" class="form-control" id="description" name="description" th:field="*{description}" th:value="${todo.description}" placeholder="Add a description">
           </div>
           
-          <!-- <div class="checkbox">
+          <div class="checkbox">
             <label for="completed">
-              <input type="checkbox" th:checked="${completed} == true" id="completed" name="completed" th:field="*{completed} th:value="${todo.completed}">
+              <input type="checkbox" th:checked="${completed} == true" id="completed" name="completed" th:field="*{completed}" th:value="${todo.completed}">
               Completed
             </label>
-          </div> -->
+          </div>
 
-          <button class="btn btn-default my-1" type="submit">Update</button>
+          <button class="btn btn-info my-1" type="submit">Update</button>
   
         </form>
 

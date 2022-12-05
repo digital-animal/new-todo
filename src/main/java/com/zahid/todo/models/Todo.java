@@ -37,6 +37,10 @@ public class Todo {
     private Instant lastModifiedDate;
 
     public Todo() {
+        this.description = "";
+        this.completed = false;
+        this.createdDate = Instant.now();
+        this.lastModifiedDate = Instant.now();
     }
 
     public Todo(String description) {

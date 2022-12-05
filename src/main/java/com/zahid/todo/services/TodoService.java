@@ -12,25 +12,29 @@ import com.zahid.todo.repositories.TodoRepository;
 @Service
 public class TodoService {
     @Autowired
-    private TodoRepository todoItemRepository;
+    private TodoRepository todoRepository;
 
     public List<Todo> getAllTodoItems() {
         List<Todo> todoItemList = new ArrayList<>();
-        todoItemRepository.findAll().forEach(todoItemList::add);
+        todoRepository.findAll().forEach(todoItemList::add);
         return todoItemList;
     }
 
-    public Todo getTodoItem(Long id) {
-        return todoItemRepository.findById(id).get();
+    public Todo getTodo(Long id) {
+        return todoRepository.findById(id).get();
     }
 
-    public void addTodoItem(Todo todoItem) {
-        todoItemRepository.save(todoItem);
+    public void addTodo(Todo todoItem) {
+        todoRepository.save(todoItem);
     }
 
-    public void updateTodoItem(Todo todoItem) {
-        Todo t = todoItemRepository.findById(todoItem.getId()).get();
+    public void updateTodo(Todo todoItem) {
+        Todo t = todoRepository.findById(todoItem.getId()).get();
         t = todoItem;
-        todoItemRepository.save(t);
+        todoRepository.save(t);
+    }
+
+    public void deleteTodo(Long id) {
+        todoRepository.deleteById(id);
     }
 }
